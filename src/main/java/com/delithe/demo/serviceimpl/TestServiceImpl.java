@@ -1,5 +1,6 @@
 package com.delithe.demo.serviceimpl;
 
+import com.delithe.demo.EmployeeDetails;
 import com.delithe.demo.service.TestService;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,12 @@ public class TestServiceImpl implements TestService {
     @Override
     public String fetchYourResult(int percentage) {
         return "You have Scored Distinction";
+    }
+
+    @Override
+    public String addCustomer(EmployeeDetails empDetails) {
+        System.out.println(empDetails);
+        return null;
     }
 
 

@@ -1,10 +1,9 @@
 package com.delithe.demo.controler;
 
+import com.delithe.demo.EmployeeDetails;
 import com.delithe.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Scanner;
 
@@ -33,5 +32,9 @@ public class TestController {
         return  result;
     }
 
-
+@PostMapping("fetch-employee")
+    public String requestEmployeeDetails(@RequestBody EmployeeDetails empDetails)
+{
+    return testService.addCustomer(empDetails);
+}
 }
