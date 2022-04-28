@@ -1,10 +1,10 @@
 package com.delithe.demo.controler;
 
+import com.delithe.demo.entity.Student;
+import com.delithe.demo.repository.StudentDetails;
 import com.delithe.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Scanner;
 
@@ -31,6 +31,11 @@ public class TestController {
     {
         String result=testService.fetchYourResult(percentage);
         return  result;
+    }
+    @PostMapping("add-student")
+    public String addStudentDetails(@RequestBody Student student)
+    {
+        return testService.addStudent(student);
     }
 
 
