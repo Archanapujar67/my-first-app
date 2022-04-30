@@ -37,8 +37,12 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public String addStudent(Student student) {
-        Student s=new Student();
-        return null;
+        Student stud=new Student();
+       stud.setName(student.getName());
+       stud.setPercentage(student.getPercentage());
+        studentDetails.save(stud);
+
+        return "Student Information is Addedd";
     }
 
 
