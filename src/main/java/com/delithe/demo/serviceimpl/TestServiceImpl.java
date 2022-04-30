@@ -1,10 +1,15 @@
 package com.delithe.demo.serviceimpl;
 
+import com.delithe.demo.entity.Student;
+import com.delithe.demo.repository.StudentDetails;
 import com.delithe.demo.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TestServiceImpl implements TestService {
+    @Autowired
+    private  StudentDetails studentDetails;
     @Override
     public String fetchProductDetails(String productName) {
         if (productName != null) {
@@ -28,6 +33,16 @@ public class TestServiceImpl implements TestService {
     @Override
     public String fetchYourResult(int percentage) {
         return "You have Scored Distinction";
+    }
+
+    @Override
+    public String addStudent(Student student) {
+        Student stud=new Student();
+       stud.setName(student.getName());
+       stud.setPercentage(student.getPercentage());
+        studentDetails.save(stud);
+
+        return "Student Details is Added";
     }
 
 
