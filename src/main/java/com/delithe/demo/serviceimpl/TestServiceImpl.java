@@ -42,7 +42,7 @@ public class TestServiceImpl implements TestService {
        stud.setPercentage(student.getPercentage());
         studentDetails.save(stud);
 
-        return "Student Information is Addedd";
+        return "Student Information is Added";
     }
 
 
